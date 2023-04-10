@@ -1,0 +1,11 @@
+.login-button{
+      
+    justify-content: space-evenly;
+}
+
+.header-potion{
+    gap: 16px;
+    justify-content: space-evenly;
+    padding-left: 50px;
+    padding-right: 50px;
+}
