@@ -1,4 +1,15 @@
 .App {
   text-align: center;
+  /* display: flex;
+  flex-direction: row; */
+}
+.cart-container{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   width: 100%;
+   justify-content: space-evenly;
+   gap: 16px;
+
 }
 
