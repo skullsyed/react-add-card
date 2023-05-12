@@ -2,10 +2,21 @@ import React from "react";
 // import { useState } from "react";
 // import './bootstrap/dist/css/bootstrap.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./header.css";
+// import "./header.css";
 
 const Header = () => {
   // const [cartItem, setCartIteam] = useState();
+  const [cartItems, setCartItems] = useState([]);
+
+  const handleAddToCart = (item) => {
+    setCartItems([...cartItems, item]);
+  };
+
+  const handleRemoveFromCart = (item) => {
+    const newCartItems = cartItems.filter((cartItem) => cartItem !== item);
+    setCartItems(newCartItems);
+  };
+  const isItemInCart = (item) => cartItems.includes(item);
 
   return (
     <div>
@@ -48,11 +59,19 @@ const Header = () => {
           <button type="button" className="btn btn-primary">
             Sign-up
           </button>
-          <button class="btn btn-outline-dark" type="submit">
-            <i class="bi-cart-fill me-1"></i>
-            Cart
-            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-          </button>
+          <div>
+            <button
+              onClick={handleAddToCart}
+              className="btn btn-outline-dark add-cart"
+              type="submit"
+            >
+              <i className="bi-cart-fill me-1"></i>
+              Cart
+              <span className="badge bg-dark text-white ms-1 rounded-pill">
+                0
+              </span>
+            </button>
+          </div>
         </div>
       </header>
     </div>

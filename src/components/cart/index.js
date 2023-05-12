@@ -1,6 +1,17 @@
-import "./cart.css";
+import { useState } from "react";
+// import "./cart.css";
 
 const Cart = ({ name, price }) => {
+  // const [disable, setDisable] = useState(true);
+  const [addedToCart, setAddedToCart] = useState(false);
+
+  const handleClick = () => {
+    setAddedToCart(true);
+  };
+
+  // const cart = {
+  //   display: disable ? "block" : "none",
+  // };
   return (
     <div className="cart-base price-container">
       <div className="col mb-3 ">
@@ -11,11 +22,19 @@ const Cart = ({ name, price }) => {
               {price}
             </div>
           </div>
-          <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+          <div
+            // style={cart}
+            className="card-footer p-4 pt-0 border-top-0 bg-transparent"
+          >
             <div className="text-center">
-              <a className="btn btn-outline-dark mt-auto" href="#">
-                View options
-              </a>
+              <button
+                // onClick={() => setDisable(!disable)}
+                onClick={handleClick}
+                disabled={addedToCart}
+                className="btn btn-outline-dark mt-auto"
+              >
+                {addedToCart ? "Added to Cart" : "Add to Cart"}
+              </button>
             </div>
           </div>
         </div>
